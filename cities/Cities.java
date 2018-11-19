@@ -1,3 +1,4 @@
+package cities;
 import java.io.FileInputStream;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -6,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-public class cityes implements Runnable {
+public class Cities implements Runnable {
         public static ArrayList reader () {
             ArrayList<String> cityesArray = new ArrayList<String>();
             try {

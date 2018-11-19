@@ -1,3 +1,4 @@
+package tamgochy;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -35,6 +36,7 @@ public class Bot {
     }
 
     public String reply(String input, String ID) {
+    	//handleEvent(input, ID);
         if (!TamagochyMap.containsKey(ID) || !TamagochyMap.get(ID).alive) {
             Pet needs = new Pet();
             TamagochyMap.put(ID, needs);
@@ -43,26 +45,27 @@ public class Bot {
         if (!TamagochyMap.get(ID).alive) {
             return "Кажется, это конец... Чтобы начать новую игру, введи любое сообщение";
         }
+        input = input.toLowerCase();
         switch (input) {
-            case "Питание": {
+            case "питание": {
                 return "Сейчас я буду кушать, сейчас меня покормят!";
             }
-            case "Сон": {
+            case "сон": {
                 return "Я ложусь спать, не беспокой меня несколько минут!";
             }
-            case "Туалет": {
+            case "туалет": {
                 return "Секундочку, я отлучусь...";
             }
-            case "Счастье": {
+            case "счастье": {
                 return "Я так рад, что ты у меня есть!";
             }
-            case "Гигиена": {
+            case "гигиена": {
                 return "А сейчас я хочу расслабиться и принять ванну";
             }
-            case "Команды": {
+            case "команды": {
                 return Texts.commands;
             }
-            case "Проверка": {
+            case "проверка": {
                 return TamagochyMap.get(ID).getStates();
             }
             default:
@@ -78,7 +81,7 @@ public class Bot {
         return Math.abs(sec / DeathTime);
     }
 
-    public void EventHandler(String input, String ID) {
+    public void handleEvent(String input, String ID) {
         if (Arrays.asList(Texts.needs).contains(input) && TamagochyMap.containsKey(ID)) {
             Event event = new Event(input, ID, this, new Date());
             Events.add(event);

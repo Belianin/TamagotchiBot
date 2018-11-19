@@ -1,3 +1,4 @@
+package tamgochy;
 import java.util.Date;
 
 public class Death extends Event {
