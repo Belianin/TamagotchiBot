@@ -32,7 +32,7 @@ public class Event {
     }
     void apply()  {
         if (!isEmpty()) {
-            //System.out.println(Who + " || " + "Повышено: " + What + " на " + HowMuch);
+            System.out.println(Who + " || " + "Повышено: " + What + " на " + HowMuch);
             Bot.getTamagochyMap().get(Who).Up(What, HowMuch);
         }
 

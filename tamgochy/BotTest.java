@@ -6,6 +6,15 @@ import org.junit.Test;
 
 public class BotTest {
 	
+	@Test
+	public void petDownTest() {
+		Pet pet = new Pet();
+		pet.Down("hunger", 20);
+		pet.Down("hunger", 20);
+		pet.Down("hunger", 20);
+		pet.Down("hunger", 20);
+		assertEquals(20, pet.hunger);
+	}
 
     @Test
     public void reply_txt() {

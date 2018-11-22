@@ -7,11 +7,11 @@ import java.util.HashMap;
 public class Pet {
     private Date lastUpdate = new Date();
     public boolean alive = true;
-    private int hunger = 100;
-    private int fun = 100;
-    private int clean = 100;
-    private int sleep = 100;
-    private int toilet = 100;
+    public int hunger = 100;
+    public int fun = 100;
+    public int clean = 100;
+    public int sleep = 100;
+    public int toilet = 100;
     
     public Date getLastUpdate() {
         return lastUpdate;
