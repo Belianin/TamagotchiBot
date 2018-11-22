@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class BotTest {
+	
 
     @Test
     public void reply_txt() {
@@ -24,11 +25,11 @@ public class BotTest {
         Bot expected = new Bot();
         Pet pet = new Pet();
         bot.reply("Счастье", "20");
-        expected.setTamagochyMap("20", pet);
+        expected.putTamagochi("20", pet);
         assertEquals(bot.getTamagochyMap().size(), expected.getTamagochyMap().size());
 
         pet.Down("Питание", 50);
-        bot.setTamagochyMap("20", pet);
+        bot.putTamagochi("20", pet);
         String expectStates = "Сон: 100 || Счастье: 100 || Гигиена: 100 || Питание: 50 || Туалет: 100 || ";
         assertEquals(bot.reply("Проверка", "20"), expectStates);
 

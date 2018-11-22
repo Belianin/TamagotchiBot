@@ -7,3 +7,14 @@
 /Texts.class
 /cityes.class
 /Cities.class
+/Reply.class
+/UserAction.class
+/UserActionType.class
+/Command.class
+/FeedCommand.class
+/SleepCommand.class
+/FunCommand.class
+/ToiletCommand.class
+/CleanCommand.class
+/CheckCommand.class
+/ShowCommandsCommand.class

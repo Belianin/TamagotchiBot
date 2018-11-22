@@ -17,7 +17,6 @@ public class Event {
         HowMuch = 0;
     }
     public Event(String what, String who, Date when, int howMuch, Bot bot) {
-        super();
         What = what;
         Who = who;
         When = when;
@@ -33,7 +32,7 @@ public class Event {
     }
     void apply()  {
         if (!isEmpty()) {
-            System.out.println(Who + " || " + "Повышено: " + What + " на " + HowMuch);
+            //System.out.println(Who + " || " + "Повышено: " + What + " на " + HowMuch);
             Bot.getTamagochyMap().get(Who).Up(What, HowMuch);
         }
 
@@ -41,24 +40,23 @@ public class Event {
 
     int getConst(String what) {
         switch (what) {
-            case "Питание": {
+            case "hunger": {
                 return 20;
             }
-            case "Сон": {
+            case "sleep": {
                 return 100;
             }
-            case "Туалет": {
+            case "toilet": {
                 return 50;
             }
-            case "Счастье": {
+            case "fun": {
                 return 10;
             }
-            case "Гигиена": {
+            case "clean": {
                 return 15;
             }
             default:
-                break;
+            	return 0;
         }
-        return 0;
     }
 }

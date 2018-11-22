@@ -1,5 +1,6 @@
 package tamgochy;
 import java.util.ArrayList;
+import java.util.List;
 
 
 class Texts {
@@ -7,10 +8,5 @@ class Texts {
             "Чтобы узнать, какие команды тебе доступны, введи \"Команды\". Чтобы узнать, как у меня дела, " +
             "напиши \"Проверка\". Чтобы остановить игру, напиши \"выход\"";
     static String commands = "Проверка, Питание, Сон, Гигиена, Tуалет, Счастье";
-    static String[] needs = {"Питание", "Сон", "Гигиена", "Tуалет", "Счастье"};
-
-
-
-
-
+    static String[] needs = {"hunger", "sleep", "clean", "toilet", "fun"};
 }

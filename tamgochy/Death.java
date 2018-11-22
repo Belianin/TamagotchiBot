@@ -18,13 +18,14 @@ public class Death extends Event {
     void apply() {
         System.out.println(Who + " || " + "Смерть");
         Pet need = bot.getTamagochyMap().get(Who);
-        need.Down("Питание", 3 * coef);
-        need.Down("Сон", 2 * coef);
-        need.Down("Гигиена", 5 * coef);
-        need.Down("Счастье", 3 * coef);
-        need.Down("Туалет", 6 * coef);
+        System.out.println(need.getStates());
+        need.Down("hunger", 3 * coef);
+        need.Down("sleep", 2 * coef);
+        need.Down("clean", 5 * coef);
+        need.Down("fun", 3 * coef);
+        need.Down("toilet", 6 * coef);
         need.setLastUpdate(new Date());
-        bot.setTamagochyMap(Who, need);
+        bot.putTamagochi(Who, need);
 
     }
 }

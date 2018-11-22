@@ -4,6 +4,8 @@ import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class ConsoleEntryPoint {
+	static Scanner input = new Scanner(System.in);
+	
 	public static void main(String[] args) {
 		Bot bot = new Bot();
 		System.out.println("Введите ID: ");
@@ -21,16 +23,14 @@ public class ConsoleEntryPoint {
 				if (input.toLowerCase().equals("выход"))
 					break;
 
-				String reply = bot.reply(input, userID);
-				System.out.println("ID: " + userID + " || " + reply);
+				Reply reply = bot.reply(input, userID);
+				System.out.println("ID: " + userID + " || " + reply.getText());
 			}
 			System.out.println("Введите новый ID, чтобы продожить или \"выход\" чтобы выйти");
 		}
 	}
 
 	public static String readInput() {
-		Scanner input = new Scanner(System.in);
-		String command = input.next();
-		return command;
+		return input.next();
 	}
 }
