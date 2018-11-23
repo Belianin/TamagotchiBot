@@ -10,7 +10,7 @@ public class CleanCommand extends Command {
 
 	@Override
 	public Reply reply(String input, String id, Bot bot) {
-    	bot.handleEvent("clean", id);
+		bot.getTamagochyMap().get(id).addClean(40);
     	return defaultReply;
 	}
 }

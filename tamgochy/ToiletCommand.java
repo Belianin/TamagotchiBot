@@ -8,7 +8,7 @@ public class ToiletCommand extends Command {
 
 	@Override
 	public Reply reply(String input, String id, Bot bot) {
-    	bot.handleEvent("toilet", id);
+		bot.getTamagochyMap().get(id).addToilet(100);
     	return defaultReply;
 	}
 }

@@ -9,11 +9,8 @@ public class BotTest {
 	@Test
 	public void petDownTest() {
 		Pet pet = new Pet();
-		pet.Down("hunger", 20);
-		pet.Down("hunger", 20);
-		pet.Down("hunger", 20);
-		pet.Down("hunger", 20);
-		assertEquals(20, pet.hunger);
+		pet.addHunger(-80);
+		assertEquals(20, pet.getHunger());
 	}
 
     @Test

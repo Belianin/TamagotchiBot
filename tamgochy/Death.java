@@ -16,16 +16,16 @@ public class Death extends Event {
     }
 
     void apply() {
-        System.out.println(Who + " || " + "Смерть");
+        //System.out.println(Who + " || " + "Смерть");
         Pet need = bot.getTamagochyMap().get(Who);
-        System.out.println(need.getStates());
-        need.Down("hunger", 3 * coef);
-        need.Down("sleep", 2 * coef);
-        need.Down("clean", 5 * coef);
-        need.Down("fun", 3 * coef);
-        need.Down("toilet", 6 * coef);
+        //System.out.println(need.getStates());
+        need.addHunger(-3 * coef);
+        need.addFun(-3 * coef);
+        need.addClean(-5 * coef);
+        need.addSleep(-2 * coef);
+        need.addToilet(-6 * coef);
         need.setLastUpdate(new Date());
-        bot.putTamagochi(Who, need);
+        // зачем? это же сслычоный тип bot.putTamagochi(Who, need);
 
     }
 }

@@ -10,7 +10,7 @@ public class FeedCommand extends Command {
 
 	@Override
 	public Reply reply(String input, String id, Bot bot) {
-    	bot.handleEvent("hunger", id);
+		bot.getTamagochyMap().get(id).addHunger(60);
     	return defaultReply;
 	}
 }

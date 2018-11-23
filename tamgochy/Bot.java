@@ -41,21 +41,22 @@ public class Bot {
 		events.remove(0);
 	}
 
-	public Reply reply(String input, String ID) {
+	public Reply reply(String input, String id) {
 
-		if (!tamagochyMap.containsKey(ID) || !tamagochyMap.get(ID).alive) {
+		if (!tamagochyMap.containsKey(id) || !tamagochyMap.get(id).alive) {
 			Pet needs = new Pet();
-			tamagochyMap.put(ID, needs);
+			tamagochyMap.put(id, needs);
 			return new Reply("Я родился!");
 		}
 
-		if (!tamagochyMap.get(ID).alive) {
+		if (!tamagochyMap.get(id).alive) {
 			return new Reply("Кажется, это конец... Чтобы начать новую игру, введи любое сообщение");
 		}
 
+		checkForDeath(id);
 		for (Command command : commands) {
 			if (command.matchInput(input))
-				return command.reply(input, ID, this);
+				return command.reply(input, id, this);
 		}
 		return new Reply("Я не знаю такой команды! Если хочешь узнать список доступных, введи \"Команды\"");
 

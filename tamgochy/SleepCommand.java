@@ -10,7 +10,7 @@ public class SleepCommand extends Command {
 
 	@Override
 	public Reply reply(String input, String id, Bot bot) {
-    	bot.handleEvent("sleep", id);
+		bot.getTamagochyMap().get(id).addSleep(100);
     	return defaultReply;
 	}
 }

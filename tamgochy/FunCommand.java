@@ -10,7 +10,7 @@ public class FunCommand extends Command {
 
 	@Override
 	public Reply reply(String input, String id, Bot bot) {
-    	bot.handleEvent("fun", id);
+		bot.getTamagochyMap().get(id).addFun(40);
     	return defaultReply;
 	}
 }
