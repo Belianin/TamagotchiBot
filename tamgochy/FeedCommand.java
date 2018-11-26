@@ -1,4 +1,4 @@
-package tamgochy;
+//package tamgochy;
 
 import java.util.Arrays;
 
@@ -10,7 +10,12 @@ public class FeedCommand extends Command {
 
 	@Override
 	public Reply reply(String input, String id, Bot bot) {
-		bot.getTamagochyMap().get(id).addHunger(60);
-    	return defaultReply;
+		if (bot.getTamagochyMap().get(id).canEat) {
+			bot.getTamagochyMap().get(id).addHunger(60);
+			return defaultReply;
+		}
+		else {
+			return new Reply("Эта команда еще не открыта");
+		}
 	}
 }
