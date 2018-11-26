@@ -1,4 +1,4 @@
-package tamgochy;
+//package tamgochy;
 
 import java.util.Arrays;
 
@@ -10,7 +10,12 @@ public class SleepCommand extends Command {
 
 	@Override
 	public Reply reply(String input, String id, Bot bot) {
-		bot.getTamagochyMap().get(id).addSleep(100);
-    	return defaultReply;
+		if (bot.getTamagochyMap().get(id).canSleep) {
+			bot.getTamagochyMap().get(id).addSleep(100);
+			return defaultReply;
+		}
+		else {
+			return new Reply("Эта команда еще не открыта");
+		}
 	}
 }
