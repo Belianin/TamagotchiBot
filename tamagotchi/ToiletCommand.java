@@ -1,4 +1,4 @@
-//package tamgochy;
+package tamagotchi;
 
 public class ToiletCommand extends Command {	
 	public ToiletCommand() {

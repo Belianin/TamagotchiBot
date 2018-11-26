@@ -1,4 +1,4 @@
-//package tamgochy;
+package tamagotchi;
 import java.util.Date;
 
 public class Event {

@@ -1,4 +1,4 @@
-//package tamgochy;
+package tamagotchi;
 import java.util.ArrayList;
 import java.lang.reflect.Field;
 import java.util.Date;
@@ -101,22 +101,22 @@ public class Pet {
             System.out.println(e.getMessage());
         }
     }
-    public void Down(String key, int value) {
-        try {
-        	Field field = this.getClass().getField(key);
-        	int newValue = field.getInt(this) - value;
-            if (key.equals("hunger") && newValue < 0) {
-                alive = false;
-            }
-            if (newValue < 0) {
-            	newValue = 0;
-            }
-            if (newValue < 30) {
-                System.out.println("!!!Критические показатели: " + key + ": " + newValue);
-            }
-            field.set(this, newValue);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-    }
+//    public void Down(String key, int value) {
+//        try {
+//        	Field field = this.getClass().getField(key);
+//        	int newValue = field.getInt(this) - value;
+//            if (key.equals("hunger") && newValue < 0) {
+//                alive = false;
+//            }
+//            if (newValue < 0) {
+//            	newValue = 0;
+//            }
+//            if (newValue < 30) {
+//                System.out.println("!!!Критические показатели: " + key + ": " + newValue);
+//            }
+//            field.set(this, newValue);
+//        } catch (Exception e) {
+//            System.out.println(e.getMessage());
+//        }
+//    }
 }

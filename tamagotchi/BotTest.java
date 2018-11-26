@@ -1,4 +1,4 @@
-package tamgochy;
+package tamagotchi;
 import java.util.Date;
 
 import static org.junit.Assert.*;
@@ -34,7 +34,7 @@ public class BotTest {
         expected.putTamagochi("20", pet);
         assertEquals(bot.getTamagochyMap().size(), expected.getTamagochyMap().size());
 
-        pet.Down("Питание", 50);
+        pet.addHunger(-50);
         bot.putTamagochi("20", pet);
         String expectStates = "Сон: 100 || Счастье: 100 || Гигиена: 100 || Питание: 50 || Туалет: 100 || ";
         assertEquals(bot.reply("Проверка", "20"), expectStates);

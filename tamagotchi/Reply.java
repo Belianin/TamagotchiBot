@@ -1,4 +1,4 @@
-package tamgochy;
+package tamagotchi;
 
 public class Reply {
 	//Этот класс пригодится в будущем, когда захотим передавать не только текст, но и кнопки
