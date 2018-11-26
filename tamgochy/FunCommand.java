@@ -1,4 +1,4 @@
-package tamgochy;
+//package tamgochy;
 
 import java.util.Arrays;
 
@@ -10,7 +10,12 @@ public class FunCommand extends Command {
 
 	@Override
 	public Reply reply(String input, String id, Bot bot) {
-		bot.getTamagochyMap().get(id).addFun(40);
-    	return defaultReply;
+		if (bot.getTamagochyMap().get(id).canFun) {
+			bot.getTamagochyMap().get(id).addFun(40);
+			return defaultReply;
+		}
+		else {
+			return new Reply("Эта команда еще не открыта");
+		}
 	}
 }
