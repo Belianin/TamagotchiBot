@@ -1,4 +1,4 @@
-package tamgochy;
+//package tamgochy;
 import java.util.Date;
 
 public class Event {
@@ -7,6 +7,7 @@ public class Event {
     public Date When;
     public int HowMuch;
     private Bot Bot;
+    public String Message;
 
     public boolean isEmpty() {
         return What == null || Who == null || When == null;
@@ -32,7 +33,7 @@ public class Event {
     }
     void apply()  {
         if (!isEmpty()) {
-            System.out.println(Who + " || " + "Повышено: " + What + " на " + HowMuch);
+            //System.out.println(Who + " || " + "Повышено: " + What + " на " + HowMuch);
             Bot.getTamagochyMap().get(Who).Up(What, HowMuch);
         }
 
