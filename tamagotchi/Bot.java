@@ -6,8 +6,8 @@ import java.util.Date;
 import java.util.HashMap;
 
 public class Bot {
-	private HashMap<String, Pet> tamagochyMap = new HashMap<String, Pet>();;
-	private ArrayList<Event> events = new ArrayList<Event>();;
+	private HashMap<String, Pet> tamagochyMap = new HashMap<String, Pet>();
+	private ArrayList<Event> events = new ArrayList<Event>();
 	private int deathTime = 10;
 	private ArrayList<Command> commands = new ArrayList<Command>();
 
@@ -45,7 +45,7 @@ public class Bot {
 	    if (input.equals("да")) {
             makeTraining(id);
 	        return new Reply("Я - твой питомец! Твоя главная цель - не дать мне умереть. " +
-                    "Чтобы узнать, как мои дела, напиши \"проверка\"");
+                    "Чтобы узнать, как мои дела, напиши \"проверка\"", new Button[] {Button.Like, Button.Dislike});
         }
 
 		if (!tamagochyMap.containsKey(id) || !tamagochyMap.get(id).alive) {
@@ -71,8 +71,12 @@ public class Bot {
 			currentPet.trainLvl = 0;
 		}
 		for (Command command : commands) {
-			if (command.matchInput(input))
-				return command.reply(input, id, this);
+			if (command.matchInput(input)) {
+				//временно тут кнопки добавляются
+				Reply reply = command.reply(input, id, this);
+				reply.addRow(Button.getNeedsButtons());
+				return reply;
+			}
 		}
 		return new Reply("Я не знаю такой команды! Если хочешь узнать список доступных, введи \"Команды\"");
 

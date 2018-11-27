@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class FeedCommand extends Command {	
 	public FeedCommand() {
-		synonyms.addAll(Arrays.asList(new String[] {"питание", "еда", "ешь", "покормить"}));
+		synonyms.addAll(Arrays.asList(new String[] {"питание", "еда", "ешь", "покормить", "🍎"}));
 		defaultReply = new Reply("Сейчас я буду кушать, сейчас меня покормят!");
 	}
 

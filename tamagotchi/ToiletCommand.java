@@ -1,8 +1,10 @@
 package tamagotchi;
 
+import java.util.Arrays;
+
 public class ToiletCommand extends Command {	
 	public ToiletCommand() {
-		synonyms.add("туалет");
+		synonyms.addAll(Arrays.asList(new String[] {"туалет", "🚽"}));
 		defaultReply = new Reply("Секундочку, я отлучусь...");
 	}
 

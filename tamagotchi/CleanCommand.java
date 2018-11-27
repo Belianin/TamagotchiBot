@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class CleanCommand extends Command {	
 	public CleanCommand() {
-		synonyms.addAll(Arrays.asList(new String[] {"гигиена", "мыться", "мойся"}));
+		synonyms.addAll(Arrays.asList(new String[] {"гигиена", "мыться", "мойся", "💦"}));
 		defaultReply = new Reply("А сейчас я хочу расслабиться и принять ванну");
 	}
 

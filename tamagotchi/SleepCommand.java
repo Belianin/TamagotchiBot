@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class SleepCommand extends Command {	
 	public SleepCommand() {
-		synonyms.addAll(Arrays.asList(new String[] {"спать", "сон", "спи"}));
+		synonyms.addAll(Arrays.asList(new String[] {"спать", "сон", "спи", "💤"}));
 		defaultReply = new Reply("Я ложусь спать, не беспокой меня несколько минут!");
 	}
 
