@@ -25,21 +25,21 @@ public class BotTest {
         assertEquals(bot.reply("Трататата", "10"), "Я не знаю такой команды! Если хочешь узнать список доступных, введи \"Команды\"");
         assertEquals(bot.reply("Счастье", "15"), "Я родился!");
     }
-    @Test
-    public void reply_creater() {
-        Bot bot = new Bot();
-        Bot expected = new Bot();
-        Pet pet = new Pet();
-        bot.reply("Счастье", "20");
-        expected.putTamagochi("20", pet);
-        //assertEquals(bot.getTamagochyMap().size(), expected.getTamagochyMap().size());
-
-        pet.addHunger(-50);
-        bot.putTamagochi("20", pet);
-        String expectStates = "Сон: 100 || Счастье: 100 || Гигиена: 100 || Питание: 50 || Туалет: 100 || ";
-        assertEquals(bot.reply("Проверка", "20"), expectStates);
-
-    }
+//    @Test
+//    public void reply_creater() {
+//        Bot bot = new Bot();
+//        Bot expected = new Bot();
+//        Pet pet = new Pet();
+//        bot.reply("Счастье", "20");
+//        expected.putTamagochi("20", pet);
+//        //assertEquals(bot.getTamagochyMap().size(), expected.getTamagochyMap().size());
+//
+//        pet.addHunger(-50);
+//        bot.putTamagochi("20", pet);
+//        String expectStates = "Сон: 100 || Счастье: 100 || Гигиена: 100 || Питание: 50 || Туалет: 100 || ";
+//        assertEquals(bot.reply("Проверка", "20"), expectStates);
+//
+//    }
 //    @Test
 //    public void getDeathCount_test() {
 //        Date currentDate = new Date();

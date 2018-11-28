@@ -8,11 +8,10 @@ public class StartDialog implements Dialog {
 	{
 		//наверное нужно вынести реплаи в переменные, чтобы не создавать их заново постоянно
 		if (!input.toLowerCase().equals("да")) {
-			return new Reply("Привет, это стартовый экран. Готов(а) начать игру?", new Button[] { new Button("Да", "да")});
+			return new Reply("Привет, это стартовый экран. Готов(а) начать игру?", new Button[] { new Button("Да")});
 		}
-			
-		Date currentDate = new Date();
-		user.events.add(new Death(user.pet));
+		
+		user.events.add(new DeathEvent(user.pet));
 		return new Reply("Это основной экран, Бла-бла", DialogName.Main, Button.getNeedsButtons());
 			
 		

@@ -9,20 +9,11 @@ import java.util.concurrent.ConcurrentHashMap;
 public class Bot {
 	private ConcurrentHashMap<String, UserData> users = new ConcurrentHashMap<>();
 	private HashMap<DialogName, Dialog> dialogs = new HashMap<>();
-
-	public UserData getUserTemp(String id)
-	{
-		return users.get(id);
-	}
 	
 	public Bot()
 	{
 		dialogs.put(DialogName.Start, new StartDialog());
 		dialogs.put(DialogName.Main, new MainDialog());
-	}
-
-	public void putTamagochi(String id, Pet pet) {
-		users.get(id).pet = pet;
 	}
 	
 	private UserData getUser(String id)
@@ -87,16 +78,6 @@ public class Bot {
 //			currentPet.train = false;
 //			currentPet.trainLvl = 0;
 //		}
-//		for (Command command : commands) {
-//			if (command.matchInput(input)) {
-//				// временно тут кнопки добавляются
-//				Reply reply = command.reply(input, id, this);
-//				reply.addRow(Button.getNeedsButtons());
-//				return reply;
-//			}
-//		}
-//		return new Reply("Я не знаю такой команды! Если хочешь узнать список доступных, введи \"Команды\"");
-
 	}
 //
 //	public void makeTraining(String id) {

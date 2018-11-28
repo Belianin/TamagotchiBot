@@ -24,6 +24,8 @@ public class MainDialog implements Dialog {
 				// временно тут кнопки добавляются
 				Reply reply = command.reply(user, input);
 				reply.addRow(Button.getNeedsButtons());
+				//reply.addRow(new Button[] {new Button("В подземелье!")});
+				reply.addRow(new Button[] {new Button("Помощь"), new Button("Статус")});
 				return reply;
 			}
 		}
