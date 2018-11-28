@@ -8,9 +8,28 @@ public class Reply {
 	//Этот класс пригодится в будущем, когда захотим передавать не только текст, но и кнопки
 	private String text;
 	private ArrayList<List<Button>> buttons = new ArrayList<List<Button>>();
+	private DialogName nextDialog = DialogName.None;
+	
+	public DialogName getNextDialog()
+	{
+		return nextDialog;
+	}
 	
 	public Reply(String text) {
 		this.text = text;
+	}
+	
+	public Reply(String text, DialogName nextDialog)
+	{
+		this.text = text;
+		this.nextDialog = nextDialog;
+	}
+	
+	public Reply(String text, DialogName nextDialog, Button[] buttons)
+	{
+		this.text = text;
+		this.nextDialog = nextDialog;
+		this.buttons.add(Arrays.asList(buttons));
 	}
 	
 	public Reply(String text, Button[] buttons)

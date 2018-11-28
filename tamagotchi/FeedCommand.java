@@ -9,9 +9,9 @@ public class FeedCommand extends Command {
 	}
 
 	@Override
-	public Reply reply(String input, String id, Bot bot) {
-		if (bot.getTamagochyMap().get(id).canEat) {
-			bot.getTamagochyMap().get(id).addHunger(60);
+	public Reply reply(UserData user, String input) {
+		if (user.pet.canEat) {
+			user.pet.addHunger(60);
 			return defaultReply;
 		}
 		else {

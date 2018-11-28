@@ -21,3 +21,10 @@
 /Training.class
 /TelegramEntryPoint.class
 /Button.class
+/DialogNode.class
+/DialogName.class
+/UserData.class
+/MainDialog.class
+/Dialog.class
+/StartCommand.class
+/StartDialog.class

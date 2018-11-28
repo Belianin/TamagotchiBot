@@ -9,9 +9,9 @@ public class CleanCommand extends Command {
 	}
 
 	@Override
-	public Reply reply(String input, String id, Bot bot) {
-		if (bot.getTamagochyMap().get(id).canClean) {
-			bot.getTamagochyMap().get(id).addClean(40);
+	public Reply reply(UserData user, String input) {
+		if (user.pet.canClean) {
+			user.pet.addClean(40);
 			return defaultReply;
 		}
 		else {

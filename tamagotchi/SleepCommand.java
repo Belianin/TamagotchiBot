@@ -9,9 +9,9 @@ public class SleepCommand extends Command {
 	}
 
 	@Override
-	public Reply reply(String input, String id, Bot bot) {
-		if (bot.getTamagochyMap().get(id).canSleep) {
-			bot.getTamagochyMap().get(id).addSleep(100);
+	public Reply reply(UserData user, String input) {
+		if (user.pet.canSleep) {
+			user.pet.addSleep(100);
 			return defaultReply;
 		}
 		else {

@@ -2,30 +2,37 @@ package tamagotchi;
 import java.util.Date;
 
 public class Death extends Event {
-    private Bot bot;
-    private int coef;
+    private Pet pet;
+    private int deathCoef = 10; 
+    public static int minDeathTime = 100000;
 
-
-    public Death(Bot bot, String id, int coef) {
-        super();
-        this.bot = bot;
-        this.Who = id;
-        this.coef = coef;
-        this.When = new Date();
-        this.What = "Death";
+    public Death(Pet pet) {
+        this.pet = pet;
+        Date currentDate = new Date();
+        this.when = new Date(currentDate.getTime() + minDeathTime);
     }
 
-    void apply() {
-        //System.out.println(Who + " || " + "Смерть");
-        Pet need = bot.getTamagochyMap().get(Who);
-        //System.out.println(need.getStates());
-        need.addHunger(-3 * coef);
-        need.addFun(-3 * coef);
-        need.addClean(-5 * coef);
-        need.addSleep(-2 * coef);
-        need.addToilet(-6 * coef);
-        need.setLastUpdate(new Date());
-        // зачем? это же сслычоный тип bot.putTamagochi(Who, need);
-
+    @Override
+    public boolean tryApply() {
+    	int coef = getDeathCount(when);
+    	//coef = 1;
+    	
+    	pet.addHunger(-3 * coef);
+    	pet.addFun(-3 * coef);
+    	pet.addClean(-5 * coef);
+    	pet.addSleep(-2 * coef);
+    	pet.addToilet(-6 * coef);
+    	pet.setLastUpdate(new Date());
+    	
+    	when = new Date(when.getTime() + minDeathTime);
+    	
+    	//и тут же проверку на смерть
+    	return false;
     }
+	private int getDeathCount(Date date) {
+		Date currentDate = new Date();
+		long difference = currentDate.getTime() - date.getTime();
+		int sec = (int) (difference / 1000);
+		return Math.abs(sec / deathCoef);
+	}
 }

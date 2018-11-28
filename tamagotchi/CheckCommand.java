@@ -8,8 +8,8 @@ public class CheckCommand extends Command {
 	}
 
 	@Override
-	public Reply reply(String input, String id, Bot bot) {
+	public Reply reply(UserData user, String input) {
 		//здесь не дефолтный, так как эта переменная меняет свое значение в процессе работы
-    	return new Reply(bot.getTamagochyMap().get(id).getStates());
+    	return new Reply(user.pet.getStates());
 	}
 }

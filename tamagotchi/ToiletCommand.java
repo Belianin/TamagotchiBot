@@ -9,9 +9,9 @@ public class ToiletCommand extends Command {
 	}
 
 	@Override
-	public Reply reply(String input, String id, Bot bot) {
-		if (bot.getTamagochyMap().get(id).canToilet) {
-			bot.getTamagochyMap().get(id).addToilet(100);
+	public Reply reply(UserData user, String input) {
+		if (user.pet.canToilet) {
+			user.pet.addToilet(100);
 			return defaultReply;
 		}
 		else {

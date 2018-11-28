@@ -9,9 +9,9 @@ public class FunCommand extends Command {
 	}
 
 	@Override
-	public Reply reply(String input, String id, Bot bot) {
-		if (bot.getTamagochyMap().get(id).canFun) {
-			bot.getTamagochyMap().get(id).addFun(40);
+	public Reply reply(UserData user, String input) {
+		if (user.pet.canFun) {
+			user.pet.addFun(40);
 			return defaultReply;
 		}
 		else {

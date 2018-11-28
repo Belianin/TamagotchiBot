@@ -9,7 +9,7 @@ public class ShowCommandsCommand extends Command {
 	}
 
 	@Override
-	public Reply reply(String input, String id, Bot bot) {
+	public Reply reply(UserData user, String input) {
     	return defaultReply;
 	}
 }
