@@ -1,7 +1,5 @@
-package tamagotchi;
+//package tamagotchi;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
@@ -14,7 +12,7 @@ public class Bot {
 	{
 		dialogs.put(DialogName.Start, new StartDialog());
 		dialogs.put(DialogName.Main, new MainDialog());
-		dialogs.put(DialogName.Train, new TrainDialog());
+		dialogs.put(DialogName.Train, new TrainingDialog());
 	}
 	
 	private UserData getUser(String id)
