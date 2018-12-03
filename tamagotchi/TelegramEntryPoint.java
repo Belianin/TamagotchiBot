@@ -1,3 +1,4 @@
+package tamagotchi;
 
 import org.telegram.telegrambots.meta.TelegramBotsApi;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
@@ -102,7 +103,6 @@ public class TelegramEntryPoint extends TelegramLongPollingBot {
 
 	@Override
 	public String getBotToken() {
-		System.out.println(System.getenv("DUNGOTCHI_TOKEN"));
 		return System.getenv("DUNGOTCHI_TOKEN");
 	}
 }

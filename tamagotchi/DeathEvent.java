@@ -1,3 +1,5 @@
+package tamagotchi;
+
 import java.util.Date;
 
 public class DeathEvent extends Event {

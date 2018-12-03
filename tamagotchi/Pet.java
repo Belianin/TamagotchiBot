@@ -1,21 +1,19 @@
-import java.util.ArrayList;
-import java.lang.reflect.Field;
+package tamagotchi;
 import java.util.Date;
-import java.util.HashMap;
+
 public class Pet {
-    public StringBuilder messages = new StringBuilder();
     public int trainLvl = 0;
     public boolean alive = true;
-    public boolean train = true;
     public boolean isSleep = false;
 
     private Date lastUpdate = new Date();
     private int hunger = 100;
-    private int fun = 100;
+    private int health = 100;
     private int clean = 100;
     private int sleep = 100;
     private int toilet = 100;
 
+    //Пока вечно истинно
     public boolean canToilet = true;
     public boolean canClean = true;
     public boolean canFun = true;
@@ -47,12 +45,12 @@ public class Pet {
         this.clean = correctValue(this.clean + clean);
     }
 
-    public int getFun() {
-        return fun;
+    public int getHealth() {
+        return health;
     }
 
     public void addHealth(int fun) {
-        this.fun = correctValue(this.fun + fun);
+        this.health = correctValue(this.health + fun);
     }
 
     public int getHunger() {
@@ -83,23 +81,11 @@ public class Pet {
     public String getStates() {
         return new StringBuilder()
                 .append("Сытость: " + hunger + " || ")
-                .append("Счастье: " + fun + " || ")
+                .append("Здоровье: " + health + " || ")
                 .append("Гигиена: " + clean + " || ")
                 .append("Сон: " + sleep + " || ")
                 .append("Туалет: " + toilet)
                 .toString();
     }
 
-    public void Up(String key, int value) {
-        try {
-            Field field = this.getClass().getField(key);
-            int newValue = field.getInt(this) + value;
-            if (newValue > 100) {
-                newValue = 100;
-            }
-            field.set(this, newValue);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-    }
 }

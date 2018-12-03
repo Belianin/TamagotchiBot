@@ -1,3 +1,4 @@
+package tamagotchi;
 
 import java.util.ArrayList;
 
@@ -18,13 +19,14 @@ public class MainDialog implements Dialog {
 	
 	public Reply reply(UserData user, String input)
 	{
+		if (user.pet.isSleep) {
+			Reply reply =  new Reply("Я сплю, отстань");
+			return reply;
+		}
 		for (Command command : commands) {
 			if (command.matchInput(input)) {
-				// временно тут кнопки добавляются
 				Reply reply = command.reply(user, input);
-				reply.addRow(Button.getNeedsButtons());
-				//reply.addRow(new Button[] {new Button("В подземелье!")});
-				reply.addRow(new Button[] {new Button("Помощь"), new Button("Статус")});
+				reply.setButtons(Button.getMainButtons());
 				return reply;
 			}
 		}

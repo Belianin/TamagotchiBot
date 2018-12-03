@@ -1,3 +1,8 @@
+package tamagotchi;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Button {
 
@@ -14,6 +19,14 @@ public class Button {
 	public Button(String title)
 	{
 		this.title = title;
+	}
+
+	public static ArrayList<List<Button>> getMainButtons() {
+		ArrayList<List<Button>> result = new ArrayList<>();
+		result.add(Arrays.asList(getNeedsButtons()));
+		result.add(Arrays.asList(new Button("В подзмелье!")));
+		result.add(Arrays.asList(new Button("Помощь"), new Button("Статус")));
+		return result;
 	}
 	
 	public static Button[] getNeedsButtons() {

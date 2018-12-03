@@ -1,3 +1,4 @@
+package tamagotchi;
 
 import java.util.Arrays;
 
@@ -9,7 +10,7 @@ public class CleanCommand extends Command {
 
 	@Override
 	public Reply reply(UserData user, String input) {
-		if (user.pet.canClean) {
+		if (user.pet.canClean && !user.pet.isSleep) {
 			user.pet.addClean(40);
 			return defaultReply;
 		}

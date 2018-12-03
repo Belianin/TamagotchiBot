@@ -1,3 +1,4 @@
+package tamagotchi;
 
 import java.util.ArrayList;
 

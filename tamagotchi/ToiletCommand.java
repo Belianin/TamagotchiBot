@@ -1,3 +1,4 @@
+package tamagotchi;
 
 import java.util.Arrays;
 
@@ -9,7 +10,7 @@ public class ToiletCommand extends Command {
 
 	@Override
 	public Reply reply(UserData user, String input) {
-		if (user.pet.canToilet) {
+		if (user.pet.canToilet && !user.pet.isSleep) {
 			user.pet.addToilet(100);
 			return defaultReply;
 		}

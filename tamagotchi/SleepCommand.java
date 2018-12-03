@@ -1,3 +1,4 @@
+package tamagotchi;
 
 import java.util.Arrays;
 
@@ -9,8 +10,9 @@ public class SleepCommand extends Command {
 
 	@Override
 	public Reply reply(UserData user, String input) {
-		if (user.pet.canSleep) {
+		if (user.pet.canSleep && !user.pet.isSleep) {
 			user.pet.addSleep(100);
+			user.events.add(new SleepEvent(user.pet));
 			return defaultReply;
 		}
 		else {

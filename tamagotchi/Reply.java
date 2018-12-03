@@ -1,10 +1,10 @@
+package tamagotchi;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class Reply {
-	//Этот класс пригодится в будущем, когда захотим передавать не только текст, но и кнопки
 	private String text;
 	private ArrayList<List<Button>> buttons = new ArrayList<List<Button>>();
 	private DialogName nextDialog = DialogName.None;
@@ -35,6 +35,10 @@ public class Reply {
 	{
 		this.text = text;
 		this.buttons.add(Arrays.asList(buttons));
+	}
+
+	public void setButtons(ArrayList<List<Button>> buttons) {
+		this.buttons = buttons;
 	}
 	
 	public void setText(String text) {

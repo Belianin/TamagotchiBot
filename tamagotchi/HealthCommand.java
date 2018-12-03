@@ -1,3 +1,4 @@
+package tamagotchi;
 
 import java.util.Arrays;
 
@@ -10,7 +11,7 @@ public class HealthCommand extends Command {
 
 	@Override
 	public Reply reply(UserData user, String input) {
-		if (user.pet.canFun) {
+		if (user.pet.canFun && !user.pet.isSleep) {
 			user.pet.addHealth(40);
 			return defaultReply;
 		}

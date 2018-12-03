@@ -1,3 +1,4 @@
+package tamagotchi;
 
 import java.util.Arrays;
 
@@ -9,7 +10,7 @@ public class FeedCommand extends Command {
 
 	@Override
 	public Reply reply(UserData user, String input) {
-		if (user.pet.canEat) {
+		if (user.pet.canEat && !user.pet.isSleep) {
 			user.pet.addHunger(60);
 			return defaultReply;
 		}
