@@ -1,21 +1,9 @@
-//package tamagotchi;
 
 import java.util.ArrayList;
 
-public class TrainDialog implements Dialog {
+public class TrainingDialog implements Dialog {
 	private DialogName name = DialogName.Main;
 	private ArrayList<Command> commands = new ArrayList<Command>();
-	//private int lvl;
-
-//	TrainDialog() {
-//		commands.add(new FeedCommand());
-//		commands.add(new SleepCommand());
-//		commands.add(new HealthCommand());
-//		commands.add(new ToiletCommand());
-//		commands.add(new CleanCommand());
-//		commands.add(new CheckCommand());
-//		commands.add(new ShowCommandsCommand());
-//	}
 
 	public Reply reply(UserData user, String input) {
 		input = input.toLowerCase();

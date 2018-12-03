@@ -2,7 +2,6 @@ import java.util.ArrayList;
 import java.lang.reflect.Field;
 import java.util.Date;
 import java.util.HashMap;
-//import com.sun.javafx.collections.MappingChange.Map;
 public class Pet {
     public StringBuilder messages = new StringBuilder();
     public int trainLvl = 0;

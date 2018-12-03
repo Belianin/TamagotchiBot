@@ -1,4 +1,3 @@
-//package tamagotchi;
 
 public interface Dialog {
 

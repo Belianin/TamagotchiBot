@@ -1,4 +1,3 @@
-//package tamagotchi;
 
 import java.util.Date;
 import java.util.HashMap;
