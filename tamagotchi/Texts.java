@@ -1,6 +1,8 @@
-package tamagotchi;
+//package tamagotchi;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+
 
 
 class Texts {
@@ -9,4 +11,7 @@ class Texts {
             "напиши \"Проверка\". Чтобы остановить игру, напиши \"выход\"";
     static String commands = "Проверка, Питание, Сон, Гигиена, Tуалет, Счастье";
     static String[] needs = {"hunger", "sleep", "clean", "toilet", "fun"};
+    public HashMap<String, String> training = new HashMap<String, String>();
+
+
 }

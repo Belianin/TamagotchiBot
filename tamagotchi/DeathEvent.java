@@ -1,10 +1,10 @@
-package tamagotchi;
+//package tamagotchi;
 import java.util.Date;
 
 public class DeathEvent extends Event {
     private Pet pet;
     private int deathCoef = 10; 
-    public static int minDeathTime = 100000;
+    public static int minDeathTime = 10000;
 
     public DeathEvent(Pet pet) {
         this.pet = pet;
@@ -15,9 +15,9 @@ public class DeathEvent extends Event {
     @Override
     public boolean tryApply() {
     	int coef = getDeathCount(when);
-    	
+
     	pet.addHunger(-3 * coef);
-    	pet.addFun(-3 * coef);
+    	//pet.addHealth(-3 * coef);
     	pet.addClean(-5 * coef);
     	pet.addSleep(-2 * coef);
     	pet.addToilet(-6 * coef);

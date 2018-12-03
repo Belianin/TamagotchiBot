@@ -1,4 +1,4 @@
-package tamagotchi;
+//package tamagotchi;
 
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;

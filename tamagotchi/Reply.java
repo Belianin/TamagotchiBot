@@ -1,4 +1,4 @@
-package tamagotchi;
+//package tamagotchi;
 
 import java.util.ArrayList;
 import java.util.Arrays;
