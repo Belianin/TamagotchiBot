@@ -21,10 +21,13 @@ public class Button {
 		this.title = title;
 	}
 
-	public static ArrayList<List<Button>> getMainButtons() {
+	public static ArrayList<List<Button>> getMainButtons(Pet pet) {
 		ArrayList<List<Button>> result = new ArrayList<>();
 		result.add(Arrays.asList(getNeedsButtons()));
-		result.add(Arrays.asList(new Button("В подзмелье!")));
+		if (pet.InDungeon)
+			result.add(Arrays.asList(new Button("🚪 Домой!")));
+		else
+			result.add(Arrays.asList(new Button("🏔️ В подзмелье!")));
 		result.add(Arrays.asList(new Button("Помощь"), new Button("Статус")));
 		return result;
 	}

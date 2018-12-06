@@ -15,6 +15,7 @@ public class MainDialog implements Dialog {
 		commands.add(new CleanCommand());
 		commands.add(new CheckCommand());
 		commands.add(new ShowCommandsCommand());
+		commands.add(new EnterDungeonCommand());
 	}
 	
 	public Reply reply(UserData user, String input)
@@ -26,7 +27,7 @@ public class MainDialog implements Dialog {
 		for (Command command : commands) {
 			if (command.matchInput(input)) {
 				Reply reply = command.reply(user, input);
-				reply.setButtons(Button.getMainButtons());
+				reply.setButtons(Button.getMainButtons(user.pet));
 				return reply;
 			}
 		}

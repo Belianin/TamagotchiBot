@@ -17,12 +17,16 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class TelegramEntryPoint extends TelegramLongPollingBot {
-	static Bot bot;
+public class TelegramEntryPoint extends TelegramLongPollingBot implements BotListener  {
+	private Bot bot;
+	
+	public TelegramEntryPoint()
+	{
+		bot = new Bot(this);
+	}
 
 	public static void main(String[] args) {
 		System.out.println("Starting...");
-		bot = new Bot();
 		ApiContextInitializer.init();
 		TelegramBotsApi botapi = new TelegramBotsApi();
 		try {
@@ -60,12 +64,17 @@ public class TelegramEntryPoint extends TelegramLongPollingBot {
 
 		System.out.println(msg.getChatId() + ": " + text);
 
-		sendMessage(msg, bot.reply(text, msg.getChatId().toString()));
+		sendAnswer(msg, bot.reply(text, msg.getChatId().toString()));
+	}
+	
+	private void sendAnswer(Message msg, Reply reply)
+	{
+		sendMessage(msg.getChatId(), reply);
 	}
 
-	private void sendMessage(Message msg, Reply reply) {
+	private void sendMessage(Long chatId, Reply reply) {
 		SendMessage s = new SendMessage();
-		s.setChatId(msg.getChatId());
+		s.setChatId(chatId);
 		s.setText(reply.getText());
 
 		if (reply.getButtons().size() != 0)
@@ -104,5 +113,17 @@ public class TelegramEntryPoint extends TelegramLongPollingBot {
 	@Override
 	public String getBotToken() {
 		return System.getenv("DUNGOTCHI_TOKEN");
+	}
+
+	@Override
+	public void processMessage(String id, Reply reply) {
+		try {
+			Long chatId = Long.parseLong(id);
+			sendMessage(chatId, reply);
+		} catch (NumberFormatException e)
+		{
+			
+		}
+		
 	}
 }

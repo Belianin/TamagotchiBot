@@ -57,7 +57,7 @@ public class TrainingDialog implements Dialog {
 		else if (input.equals("да! ✨") && user.pet.trainLvl == 6) {
 			user.events.add(new DeathEvent(user.pet));
 			Reply reply = new Reply("Игра началась!", DialogName.Main);
-			reply.setButtons(Button.getMainButtons());
+			reply.setButtons(Button.getMainButtons(user.pet));
 			return reply;
 		}
 		System.out.println(user.pet.trainLvl);

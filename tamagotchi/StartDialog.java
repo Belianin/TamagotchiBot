@@ -17,7 +17,9 @@ public class StartDialog implements Dialog {
 		}
 
 		user.events.add(new DeathEvent(user.pet));
-		return new Reply("Игра началась!", DialogName.Main, Button.getNeedsButtons());
+		Reply reply =  new Reply("Игра началась!", DialogName.Main);
+		reply.setButtons(Button.getMainButtons(user.pet));
+		return reply;
 
 
 

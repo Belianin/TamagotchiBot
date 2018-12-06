@@ -19,6 +19,8 @@ public class Pet {
     public boolean canFun = true;
     public boolean canEat = true;
     public boolean canSleep = true;
+    
+    public boolean InDungeon = false;
 
 
     public int getToilet() {

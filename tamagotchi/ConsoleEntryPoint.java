@@ -3,11 +3,12 @@ package tamagotchi;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class ConsoleEntryPoint {
+public class ConsoleEntryPoint implements BotListener {
 	static Scanner input = new Scanner(System.in);
 	
-	public static void main(String[] args) {
-		Bot bot = new Bot();
+	public ConsoleEntryPoint()
+	{
+		Bot bot = new Bot(this);
 		System.out.println("Введите ID: ");
 		while (true) {
 			String userID = readInput();
@@ -28,9 +29,19 @@ public class ConsoleEntryPoint {
 			}
 			System.out.println("Введите новый ID, чтобы продожить или \"выход\" чтобы выйти");
 		}
+		
+	}
+	
+	public static void main(String[] args) {
+		ConsoleEntryPoint console = new ConsoleEntryPoint();
 	}
 
 	public static String readInput() {
 		return input.next();
+	}
+
+	@Override
+	public void processMessage(String id, Reply reply) {
+		System.out.println("ID: " + id + " || " + reply.getText());
 	}
 }

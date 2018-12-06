@@ -7,9 +7,11 @@ import java.util.concurrent.ConcurrentHashMap;
 public class Bot {
 	private ConcurrentHashMap<String, UserData> users = new ConcurrentHashMap<>();
 	private HashMap<DialogName, Dialog> dialogs = new HashMap<>();
+	private BotListener listener;
 	
-	public Bot()
+	public Bot(BotListener listener)
 	{
+		this.listener = listener;
 		dialogs.put(DialogName.Start, new StartDialog());
 		dialogs.put(DialogName.Main, new MainDialog());
 		dialogs.put(DialogName.Train, new TrainingDialog());
@@ -31,6 +33,8 @@ public class Bot {
 			if (event.when.before(new Date())) {
 				if (event.tryApply())
 					user.events.remove(event);
+				if (event.hasReply())
+					listener.processMessage(user.id, event.getReply());
 			}
 		}
 	}
