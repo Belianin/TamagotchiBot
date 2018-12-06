@@ -4,8 +4,7 @@ import java.util.Date;
 
 public class DeathEvent extends Event {
     private Pet pet;
-    private int deathCoef = 10; 
-    public static int minDeathTime = 10000;
+    public static int minDeathTime = 30000;
 
     public DeathEvent(Pet pet) {
         this.pet = pet;
@@ -15,7 +14,8 @@ public class DeathEvent extends Event {
 
     @Override
     public boolean tryApply() {
-    	int coef = getDeathCount(when);
+    	int coef = getDeathCount();
+    	System.out.println(coef);
 
     	pet.addHunger(-3 * coef);
     	//pet.addHealth(-3 * coef);
@@ -23,16 +23,17 @@ public class DeathEvent extends Event {
     	pet.addSleep(-2 * coef);
     	pet.addToilet(-6 * coef);
     	pet.setLastUpdate(new Date());
+    	
     	when = new Date(when.getTime() + minDeathTime);
     	
     	//и тут же проверку на смерть
     	return false;
     }
     
-	private int getDeathCount(Date date) {
+	private int getDeathCount() {
 		Date currentDate = new Date();
-		long difference = currentDate.getTime() - date.getTime();
+		long difference = currentDate.getTime() - when.getTime();
 		int sec = (int) (difference / 1000);
-		return Math.abs(sec / deathCoef);
+		return sec / 10;
 	}
 }

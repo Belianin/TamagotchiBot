@@ -15,6 +15,11 @@ public class EncounterEvent extends Event {
 	}
 	@Override
 	boolean tryApply() {
+		if (!pet.InDungeon) {
+			reply = new Reply("Питомец вернулся домой");
+			when = new Date(when.getTime() + timeToNext);
+			return true;
+		}
 		reply = new Reply("Что-то произошло в путешествии");
 		when = new Date(when.getTime() + timeToNext);
 		return false;

@@ -16,6 +16,7 @@ public class MainDialog implements Dialog {
 		commands.add(new CheckCommand());
 		commands.add(new ShowCommandsCommand());
 		commands.add(new EnterDungeonCommand());
+		commands.add(new LeaveDungeonCommand());
 	}
 	
 	public Reply reply(UserData user, String input)

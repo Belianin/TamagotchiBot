@@ -2,6 +2,8 @@ package tamagotchi;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class Bot {
@@ -15,6 +17,15 @@ public class Bot {
 		dialogs.put(DialogName.Start, new StartDialog());
 		dialogs.put(DialogName.Main, new MainDialog());
 		dialogs.put(DialogName.Train, new TrainingDialog());
+		
+		Timer timer = new Timer();
+		timer.scheduleAtFixedRate(new TimerTask() {
+			@Override
+			public void run() {
+				for (UserData user : users.values())
+					processEvents(user);
+			}
+		}, 10000, 10000);
 	}
 	
 	private UserData getUser(String id)
