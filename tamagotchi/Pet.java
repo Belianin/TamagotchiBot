@@ -6,7 +6,9 @@ public class Pet {
     public boolean alive = true;
     public boolean isSleep = false;
 
+    //мб уже и не надо
     private Date lastUpdate = new Date();
+    
     private int hunger = 100;
     private int health = 100;
     private int clean = 100;
@@ -21,6 +23,14 @@ public class Pet {
     public boolean canSleep = true;
     
     public boolean InDungeon = false;
+    
+    public String name;
+    public UserData master;
+    
+    public Pet(String name, UserData master) {
+    	this.name = name;
+    	this.master = master;
+    }
 
 
     public int getToilet() {

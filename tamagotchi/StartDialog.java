@@ -9,17 +9,14 @@ public class StartDialog implements Dialog {
 		//наверное нужно вынести реплаи в переменные, чтобы не создавать их заново постоянно
 		if (input.toLowerCase().equals("да"))
 			return new Reply("Добро пожаловать в обучение! Я - твой питомец, и у меня есть потребности! " +
-					"Готов за мной ухаживать?", DialogName.Train, new Button[] { new Button("Да")});
+					"Готов за мной ухаживать?", DialogName.Training, new Button[] { new Button("Да")});
 		if (!input.toLowerCase().equals("нет")) {
 			Reply reply = new Reply("Привет, это стартовый экран. Хочешь пройти обучение?");
 			reply.addRow(new Button[] { new Button("Да"), new Button("Нет")});
 			return reply;
 		}
 
-		user.events.add(new DeathEvent(user.pet));
-		Reply reply =  new Reply("Игра началась!", DialogName.Main);
-		reply.setButtons(Button.getMainButtons(user.pet));
-		return reply;
+		return new Reply("Дайте имя вашему питомцу", DialogName.Creation);
 
 
 

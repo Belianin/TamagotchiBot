@@ -20,7 +20,10 @@ public class EncounterEvent extends Event {
 			when = new Date(when.getTime() + timeToNext);
 			return true;
 		}
-		reply = new Reply("Что-то произошло в путешествии");
+		
+		Encounter encounter = Encounters.getRandom();
+		reply = encounter.act(pet);
+		
 		when = new Date(when.getTime() + timeToNext);
 		return false;
 	}

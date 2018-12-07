@@ -13,10 +13,12 @@ public class Bot {
 	
 	public Bot(BotListener listener)
 	{
+		Encounters.addEncounter();
 		this.listener = listener;
 		dialogs.put(DialogName.Start, new StartDialog());
 		dialogs.put(DialogName.Main, new MainDialog());
-		dialogs.put(DialogName.Train, new TrainingDialog());
+		dialogs.put(DialogName.Training, new TrainingDialog());
+		dialogs.put(DialogName.Creation, new CreationDialog());
 		
 		Timer timer = new Timer();
 		timer.scheduleAtFixedRate(new TimerTask() {

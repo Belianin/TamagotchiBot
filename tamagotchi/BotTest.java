@@ -3,16 +3,25 @@ package tamagotchi;
 import java.util.Date;
 
 import static org.junit.Assert.*;
+
+import org.junit.Before;
 import org.junit.Test;
 
 public class BotTest {
 	
+	private UserData user;
+	
+	@Before
+	public void setUp() {
+		user = new UserData("testUserName");
+		user.pet = new Pet("testPetName", user);
+	}
+	
 	@Test
 	public void petDownTest() {
-		Pet pet = new Pet();
-		int hunger = pet.getHunger();
-		pet.addHunger(-80);
-		assertEquals(hunger - 20, pet.getHunger());
+		int hunger = user.pet.getHunger();
+		user.pet.addHunger(-80);
+		assertEquals(hunger - 20, user.pet.getHunger());
 	}
 
 //    @Test
