@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class DeathEvent extends Event {
     private Pet pet;
-    public static int minDeathTime = 30000;
+    public static int minDeathTime = 15000;
 
     public DeathEvent(Pet pet) {
         this.pet = pet;
@@ -14,11 +14,9 @@ public class DeathEvent extends Event {
 
     @Override
     public boolean tryApply() {
-    	int coef = getDeathCount();
-    	System.out.println(coef);
+    	int coef = 1;//getDeathCount();
 
     	pet.addHunger(-3 * coef);
-    	//pet.addHealth(-3 * coef);
     	pet.addClean(-5 * coef);
     	pet.addSleep(-2 * coef);
     	pet.addToilet(-6 * coef);

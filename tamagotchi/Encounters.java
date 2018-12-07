@@ -13,8 +13,7 @@ public abstract class Encounters {
 		return encounters.get(random.nextInt(encounters.size()));
 	}
 	
-	public static void addEncounter() {
-		Gson gson = new Gson();
-		encounters.add(gson.fromJson("{\"successMessage\":\"Ы\"}", Encounter.class));
+	public static void addEncounter(Encounter encounter) {
+		encounters.add(encounter);
 	}
 }

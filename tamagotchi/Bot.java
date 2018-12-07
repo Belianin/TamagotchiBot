@@ -10,10 +10,12 @@ public class Bot {
 	private ConcurrentHashMap<String, UserData> users = new ConcurrentHashMap<>();
 	private HashMap<DialogName, Dialog> dialogs = new HashMap<>();
 	private BotListener listener;
+	private FileWorker fileWorker;
 	
 	public Bot(BotListener listener)
 	{
-		Encounters.addEncounter();
+		fileWorker = new FileWorker("data/users/");
+		fileWorker.loadEncounters();
 		this.listener = listener;
 		dialogs.put(DialogName.Start, new StartDialog());
 		dialogs.put(DialogName.Main, new MainDialog());
@@ -27,7 +29,7 @@ public class Bot {
 				for (UserData user : users.values())
 					processEvents(user);
 			}
-		}, 10000, 10000);
+		}, 20000, 20000);
 	}
 	
 	private UserData getUser(String id)

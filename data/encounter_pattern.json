@@ -1,0 +1,23 @@
+﻿{
+	"message": "Что-то произошло в путешествии",
+	"requiredHunger": 0,
+	"requiredHealth": 0,
+	"requiredSleep": 0,
+	"requiredClean": 0,
+	"requiredToilet": 0,
+
+	"successHunger": 0,
+	"successHealth": 0,
+	"successSleep": 0,
+	"successClean": 0,
+	"successToilet": 0,
+	"reward": 0,
+	"successMessage": "Ваш питомец справился!",
+	
+	"onFailHunger": 0,
+	"onFailHealth": 0,
+	"onFailSleep": 0,
+	"onFailClean": 0,
+	"onFailToilet": 0,
+	"failMessage":"Ваш питомец сбежал"
+}

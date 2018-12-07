@@ -1,6 +1,9 @@
 package tamagotchi;
 
 public class Encounter {
+	//опционально
+	private String message;
+	
 	private int requiredHunger;
 	private int requiredHealth;
 	private int requiredSleep;
@@ -36,6 +39,8 @@ public class Encounter {
 		pet.addSleep(successSleep);
 		pet.addToilet(successToilet);
 		
+		if (message != null)
+			return new Reply(message + "\n" + successMessage);
 		return new Reply(successMessage);
 	}
 
@@ -47,6 +52,8 @@ public class Encounter {
 		pet.addSleep(onFailSleep);
 		pet.addToilet(onFailToilet);
 		
+		if (message != null)
+			return new Reply(message + "\n" + failMessage);
 		return new Reply(failMessage);
 	}
 

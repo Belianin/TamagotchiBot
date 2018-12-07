@@ -13,6 +13,9 @@ public abstract class Event {
     
     public Reply getReply()
     {
+    	//чтобы один раз читалось
+    	Reply reply = this.reply;
+    	this.reply = null;
     	return reply;
     }
     abstract boolean tryApply();
