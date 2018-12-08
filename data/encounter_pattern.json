@@ -19,5 +19,6 @@
 	"onFailSleep": 0,
 	"onFailClean": 0,
 	"onFailToilet": 0,
+	"failReward": 0,
 	"failMessage":"Ваш питомец сбежал"
 }

@@ -23,6 +23,7 @@ public class Encounter {
 	private int onFailSleep;
 	private int onFailClean;
 	private int onFailToilet;
+	private int failReward;
 	private String failMessage = "Что-то пошло не так в путешествии";
 
 	private boolean checkParams(Pet pet) {
@@ -45,6 +46,7 @@ public class Encounter {
 	}
 
 	private Reply fail(Pet pet) {
+		pet.master.money += failReward;
 		
 		pet.addClean(onFailClean);
 		pet.addHealth(onFailHealth);

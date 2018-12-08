@@ -7,6 +7,7 @@ public class TrainingDialog implements Dialog {
 	private ArrayList<Command> commands = new ArrayList<Command>();
 
 	public Reply reply(UserData user, String input) {
+		user.pet = new Pet("test", user);
 		input = input.toLowerCase();
 		if (input.equals("да") && user.pet.trainLvl == 0) {
 			user.pet.trainLvl += 1;

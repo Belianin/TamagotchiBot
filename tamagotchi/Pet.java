@@ -96,7 +96,8 @@ public class Pet {
                 .append("Здоровье: " + health + " || ")
                 .append("Гигиена: " + clean + " || ")
                 .append("Сон: " + sleep + " || ")
-                .append("Туалет: " + toilet)
+                .append("Туалет: " + toilet + " || ")
+                .append("Деньги: " + master.money)
                 .toString();
     }
 
