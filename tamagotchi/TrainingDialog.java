@@ -7,9 +7,9 @@ public class TrainingDialog implements Dialog {
 	private ArrayList<Command> commands = new ArrayList<Command>();
 
 	public Reply reply(UserData user, String input) {
-		user.pet = new Pet("test", user);
 		input = input.toLowerCase();
-		if (input.equals("да") && user.pet.trainLvl == 0) {
+		if (input.equals("да")) {
+			user.pet = new Pet("test", user);
 			user.pet.trainLvl += 1;
 			return new Reply("Твоя главная цель - следить за моими потребностями. Они будут влиять на мою жизнь " +
 					"самым прямым образом. Самая быстропонижающаяся потребность - туалет. Чтобы я сходила в туалет, напиши" +
