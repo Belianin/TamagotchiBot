@@ -25,8 +25,10 @@ public class Bot {
 		timer.scheduleAtFixedRate(new TimerTask() {
 			@Override
 			public void run() {
-				for (UserData user : users.values())
+				for (UserData user : users.values()) {
 					processEvents(user);
+					warnUser(user);
+				}
 			}
 		}, 20000, 20000);
 	}
@@ -66,7 +68,25 @@ public class Bot {
 			if (reply.getNextDialog() != DialogName.None)
 				user.currentDialog = reply.getNextDialog();
 
+			warnUser(user);
+
 			return reply;
+		}
+	}
+
+	private void warnUser(UserData user) {
+		if (user.pet == null)
+			return;
+		if (!user.pet.alive) {
+			return;
+		}
+		StringBuilder sb = new StringBuilder();
+		if (user.pet.getHunger() <= 20)
+			sb.append("🍎: " + user.pet.getHunger() + " | ");
+		if (user.pet.getHealth() <= 20)
+			sb.append("💊: " + user.pet.getHunger() + " | ");
+		if (sb.length() > 0) {
+			listener.processMessage(user.id, new Reply("⚠️ Внимание!⚠\nНизкие показатели:\n" + sb.toString()));
 		}
 	}
 }

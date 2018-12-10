@@ -12,16 +12,11 @@ import javax.validation.constraints.AssertFalse;
 
 public abstract class Encounters {
     private static ArrayList<Encounter> encounters = new ArrayList<Encounter>();
-    //private static ArrayList<Encounter> storyEncounters = new ArrayList<>();
     private static HashMap<String, ArrayList<Encounter>> storiesEncounter = new HashMap<String, ArrayList<Encounter>>();
     private static ArrayList<String> stories = new ArrayList<>();
     private static Random random = new Random();
 
-    //public static Encounter getRandom() {
-    //return encounters.get(random.nextInt(encounters.size()));
-    //}
-
-    public static Encounter returnEncount(Pet pet) {
+    public static Encounter getEncounter(Pet pet) {
 
         if (!pet.isStory) {
             if (random.nextBoolean()) {
@@ -47,8 +42,6 @@ public abstract class Encounters {
 
     }
 
-//	public static void storyStart() { isStory = true; storyLevel = 0; }
-
     public static boolean checkIsStory(Pet pet) {
         pet.storyLevel += 1;
         if (pet.storyLevel < storiesEncounter.get(pet.storyName).size()) {
@@ -58,14 +51,6 @@ public abstract class Encounters {
             return false;
         }
     }
-
-    //public Encounter getStory() {return storyEncounters.get(storyLevel); }
-
-
-//	public static Encounter getStory() {
-//		if (storyLevel < storyEncounters.size()) return storyEncounters.get(storyLevel);
-//		else storyLevel = 0;
-//	}
 
     public static void addEncounter(Encounter encounter) {
         encounters.add(encounter);

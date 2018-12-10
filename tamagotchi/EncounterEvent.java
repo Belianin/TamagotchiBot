@@ -23,7 +23,7 @@ public class EncounterEvent extends Event {
 			when = new Date(when.getTime() + timeToNext);
 			return true;
 		}
-		Encounter encounter = Encounters.returnEncount(pet);
+		Encounter encounter = Encounters.getEncounter(pet);
 		reply = encounter.act(pet);
 
 		

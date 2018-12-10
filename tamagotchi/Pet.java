@@ -25,7 +25,7 @@ public class Pet {
     public boolean InDungeon = false;
     
     public String name;
-    private UserData master;
+    public UserData master;
 
     public   boolean isStory = false;
     public  int storyLevel = 0;

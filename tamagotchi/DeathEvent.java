@@ -16,7 +16,7 @@ public class DeathEvent extends Event {
     public boolean tryApply() {
     	int coef = 1;//getDeathCount();
 
-    	pet.addHunger(-4 * coef);
+    	pet.addHunger(-6 * coef);
     	pet.addClean(-5 * coef);
     	if (!pet.isSleep)
     		pet.addSleep(-2 * coef);
@@ -27,6 +27,7 @@ public class DeathEvent extends Event {
     	
 		if (pet.getHunger() == 0 || pet.getHealth() == 0) {
 			pet.alive = false;
+			pet.master.events.clear();
 			reply = new Reply(pet.name + " RIP :(", DialogName.Start);
 		}
 
