@@ -11,7 +11,7 @@ import com.google.gson.*;
 
 public class FileWorker {
 	String userDirectory;
-	String encountersDirectory = "data/encounters/";
+	String[] encountersDirectory = {"data/castle/", "data/beach/"};
 	Gson gson;
 
 	public FileWorker(String userDir) {
@@ -35,7 +35,7 @@ public class FileWorker {
 		}
 		return sb.toString();
 	}
-	
+
 	public String readFile(File file) {
 		StringBuilder sb = new StringBuilder();
 		try (FileReader fr = new FileReader(file)) {
@@ -74,14 +74,31 @@ public class FileWorker {
 			System.out.println("Writting error!");
 		}
 	}
-	
+
 	public void loadEncounters() {
-		File directory = new File(encountersDirectory);
+		File directory = new File("data/encounters/");
 		File[] files = directory.listFiles();
 		if (files == null)
 			return;
-		
+
 		for (File file : files)
 			Encounters.addEncounter(gson.fromJson(readFile(file), Encounter.class));
+
+
+//		directory = new File("data/castle");
+//		files = directory.listFiles();
+//		if (files == null)
+//			return;
+
+		for (String dir : encountersDirectory) {
+			String key = dir.split("/")[1];
+			File direct = new File(dir);
+			files = direct.listFiles();
+			Encounters.putStoryName(key);
+			for (File file : files) {
+				Encounters.addStoryEncounter(gson.fromJson(readFile(file), Encounter.class), key);
+
+			}
+		}
 	}
 }
