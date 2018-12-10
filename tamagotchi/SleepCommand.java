@@ -13,7 +13,7 @@ public class SleepCommand extends Command {
 		if (user.pet.canSleep && !user.pet.isSleep) {
 			user.pet.addSleep(100);
 			user.events.add(new SleepEvent(user.pet));
-			return new Reply(defaultReply.getText() + user.pet.getStates());
+			return new Reply(user.pet.getStates() + defaultReply.getText());
 		}
 		else {
 			return new Reply("Эта команда еще не открыта");

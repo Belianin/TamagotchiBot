@@ -16,6 +16,8 @@ public class EncounterEvent extends Event {
 	}
 	@Override
 	boolean tryApply() {
+		if (!pet.isSleep)
+			return false;
 		if (!pet.InDungeon) {
 			reply = new Reply("Питомец вернулся домой");
 			when = new Date(when.getTime() + timeToNext);

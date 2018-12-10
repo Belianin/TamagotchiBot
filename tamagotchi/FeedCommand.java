@@ -12,7 +12,7 @@ public class FeedCommand extends Command {
 	public Reply reply(UserData user, String input) {
 		if (user.pet.canEat && !user.pet.isSleep) {
 			user.pet.addHunger(60);
-			return new Reply(defaultReply.getText() + user.pet.getStates());
+			return new Reply(user.pet.getStates() + defaultReply.getText());
 		}
 		else {
 			return new Reply("Эта команда еще не открыта");

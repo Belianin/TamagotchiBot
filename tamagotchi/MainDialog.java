@@ -10,7 +10,7 @@ public class MainDialog implements Dialog {
 	MainDialog() {
 		commands.add(new FeedCommand());
 		commands.add(new SleepCommand());
-		commands.add(new HealthCommand());
+		commands.add(new HealCommand());
 		commands.add(new ToiletCommand());
 		commands.add(new CleanCommand());
 		commands.add(new CheckCommand());
