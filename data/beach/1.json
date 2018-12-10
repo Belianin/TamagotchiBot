@@ -1,0 +1,17 @@
+{
+	"message": "Eto plyazh",
+	"requiredHunger": 60,
+	"requiredHealth": 60,
+	"requiredSleep": 70,
+	
+	"successHunger": -10,
+	"successSleep": -10,
+	"successClean": -10,
+	"reward": 100,
+	"successMessage": "125475",
+	
+	"onFailHunger": 10,
+	"onFailSleep": 5,
+	"onFailToilet": -15,
+	"failMessage": "54785"
+}

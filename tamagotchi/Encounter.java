@@ -9,6 +9,7 @@ public class Encounter {
 	private int requiredSleep;
 	private int requiredClean;
 	private int requiredToilet;
+	private int requiredReward;
 
 	private int successHunger;
 	private int successHealth;
@@ -28,12 +29,11 @@ public class Encounter {
 
 	private boolean checkParams(Pet pet) {
 		return pet.getClean() >= requiredClean && pet.getHealth() >= requiredHealth && pet.getHunger() >= requiredHunger
-				&& pet.getSleep() >= requiredSleep && pet.getToilet() >= requiredToilet;
+				&& pet.getSleep() >= requiredSleep && pet.getToilet() >= requiredToilet && pet.getMoney() >= requiredReward;
 	}
 
 	private Reply success(Pet pet) {
-		pet.master.money += reward;
-		
+		pet.addMoney(reward);
 		pet.addClean(successClean);
 		pet.addHealth(successHealth);
 		pet.addHunger(successHunger);
@@ -46,8 +46,7 @@ public class Encounter {
 	}
 
 	private Reply fail(Pet pet) {
-		pet.master.money += failReward;
-		
+		pet.addMoney(reward);
 		pet.addClean(onFailClean);
 		pet.addHealth(onFailHealth);
 		pet.addHunger(onFailHunger);

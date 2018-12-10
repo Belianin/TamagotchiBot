@@ -25,7 +25,11 @@ public class Pet {
     public boolean InDungeon = false;
     
     public String name;
-    public UserData master;
+    private UserData master;
+
+    public   boolean isStory = false;
+    public  int storyLevel = 0;
+    public String storyName = "";
     
     public Pet(String name, UserData master) {
     	this.name = name;
@@ -38,7 +42,12 @@ public class Pet {
     }
 
     public void addToilet(int toilet) {
+
         this.toilet = correctValue(this.toilet + toilet);
+        if (this.toilet == 0) {
+            this.toilet = 100;
+            this.clean = 0;
+        }
     }
 
     public int getSleep() {
@@ -48,6 +57,10 @@ public class Pet {
     public void addSleep(int sleep) {
         this.sleep = correctValue(this.sleep + sleep);
     }
+
+    public void addMoney(int money) {this.master.money = correctValue(this.master.money + money); }
+
+    public int getMoney() { return this.master.money; }
 
     public int getClean() {
         return clean;
@@ -69,9 +82,7 @@ public class Pet {
         return hunger;
     }
 
-    public void addHunger(int hunger) {
-        this.hunger = correctValue(this.hunger + hunger);
-    }
+    public void addHunger(int hunger) { this.hunger = correctValue(this.hunger + hunger); }
 
     public Date getLastUpdate() {
         return lastUpdate;
@@ -92,6 +103,7 @@ public class Pet {
 
     public String getStates() {
         return new StringBuilder()
+                .append(name + ":\n")
                 .append("Сытость: " + hunger + " || ")
                 .append("Здоровье: " + health + " || ")
                 .append("Гигиена: " + clean + " || ")

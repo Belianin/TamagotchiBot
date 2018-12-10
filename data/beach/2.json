@@ -1,0 +1,17 @@
+{
+	"message": "Привет это тест",
+	"requiredHunger": 60,
+	"requiredHealth": 60,
+	"requiredSleep": 70,
+	
+	"successHunger": -10,
+	"successSleep": -10,
+	"successClean": -10,
+	"reward": 100,
+	"successMessage": "Сюда попал по тесту раз",
+	
+	"onFailHunger": 10,
+	"onFailSleep": 5,
+	"onFailToilet": -15,
+	"failMessage": "Сюда попал по тесту 2"
+}
