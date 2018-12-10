@@ -113,11 +113,11 @@ public class Pet {
                 .toString();
     }
     
-    //не робит
+    //робит, но тупо
     private String alignState(int state)
     {
     	String result = Integer.toString(state);
-    	for (int i = result.length(); i <= 3; i++)
+    	for (int i = result.length(); i < 3; i++)
     		result = " " + result;
     	
     	return result;
