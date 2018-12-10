@@ -17,7 +17,6 @@ public abstract class Encounters {
     private static Random random = new Random();
 
     public static Encounter getEncounter(Pet pet) {
-
         if (!pet.isStory) {
             if (random.nextBoolean()) {
                 return encounters.get(random.nextInt(encounters.size()));

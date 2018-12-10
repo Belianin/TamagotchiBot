@@ -104,13 +104,23 @@ public class Pet {
     public String getStates() {
         return new StringBuilder()
                 //.append(name + ":\n")
-                .append("🍎: " + hunger + " | ")
-                .append("💊: " + health + " | ")
-                .append("💦: " + clean + "\n")
-                .append("💤: " + sleep + " | ")
-                .append("🚽: " + toilet + " | ")
+                .append("🍎: " + alignState(hunger) + " | ")
+                .append("💊: " + alignState(health) + " | ")
+                .append("💦: " + alignState(clean) + "\n")
+                .append("💤: " + alignState(sleep) + " | ")
+                .append("🚽: " + alignState(toilet) + " | ")
                 .append("💰: " + master.money + "\n")
                 .toString();
+    }
+    
+    //не робит
+    private String alignState(int state)
+    {
+    	String result = Integer.toString(state);
+    	for (int i = result.length(); i <= 3; i++)
+    		result = " " + result;
+    	
+    	return result;
     }
 
 }

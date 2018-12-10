@@ -16,7 +16,7 @@ public class EncounterEvent extends Event {
 	}
 	@Override
 	boolean tryApply() {
-		if (!pet.isSleep)
+		if (pet.isSleep)
 			return false;
 		if (!pet.InDungeon) {
 			reply = new Reply("Питомец вернулся домой");
