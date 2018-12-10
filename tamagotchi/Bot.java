@@ -11,9 +11,8 @@ public class Bot {
 	private HashMap<DialogName, Dialog> dialogs = new HashMap<>();
 	private BotListener listener;
 	private FileWorker fileWorker;
-	
-	public Bot(BotListener listener)
-	{
+
+	public Bot(BotListener listener) {
 		fileWorker = new FileWorker("data/users/");
 		fileWorker.loadEncounters();
 		this.listener = listener;
@@ -21,7 +20,7 @@ public class Bot {
 		dialogs.put(DialogName.Main, new MainDialog());
 		dialogs.put(DialogName.Training, new TrainingDialog());
 		dialogs.put(DialogName.Creation, new CreationDialog());
-		
+
 		Timer timer = new Timer();
 		timer.scheduleAtFixedRate(new TimerTask() {
 			@Override
@@ -31,25 +30,27 @@ public class Bot {
 			}
 		}, 20000, 20000);
 	}
-	
-	private UserData getUser(String id)
-	{
+
+	private UserData getUser(String id) {
 		UserData newUserData = new UserData(id);
 		UserData user = users.putIfAbsent(id, newUserData);
 		if (user != null)
 			return user;
-		
+
 		return newUserData;
 	}
-	
-	public void processEvents(UserData user)
-	{
+
+	public void processEvents(UserData user) {
 		for (Event event : user.events.toArray(new Event[user.events.size()])) {
 			if (event.when.before(new Date())) {
 				if (event.tryApply())
 					user.events.remove(event);
-				if (event.hasReply())
-					listener.processMessage(user.id, event.getReply());
+				if (event.hasReply()) {
+					Reply reply = event.getReply();
+					if (reply.getNextDialog() != DialogName.None)
+						user.currentDialog = reply.getNextDialog();
+					listener.processMessage(user.id, reply);
+				}
 			}
 		}
 	}

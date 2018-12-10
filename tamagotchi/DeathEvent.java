@@ -16,18 +16,18 @@ public class DeathEvent extends Event {
     public boolean tryApply() {
     	int coef = 1;//getDeathCount();
 
-    	pet.addHunger(-10 * coef);
+    	pet.addHunger(-4 * coef);
     	pet.addClean(-5 * coef);
-    	pet.addSleep(-2 * coef);
+    	if (!pet.isSleep)
+    		pet.addSleep(-2 * coef);
     	pet.addToilet(-6 * coef);
     	pet.setLastUpdate(new Date());
     	
     	when = new Date(when.getTime() + minDeathTime);
     	
-    	//и тут же проверку на смерть
 		if (pet.getHunger() == 0 || pet.getHealth() == 0) {
 			pet.alive = false;
-			reply = new Reply(pet.name + " умир RIP", DialogName.Start);
+			reply = new Reply(pet.name + " RIP :(", DialogName.Start);
 		}
 
     	return false;

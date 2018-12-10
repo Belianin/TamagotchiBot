@@ -100,16 +100,16 @@ public class Pet {
 
         return value;
     }
-
+    
     public String getStates() {
         return new StringBuilder()
-                .append(name + ":\n")
-                .append("Сытость: " + hunger + " || ")
-                .append("Здоровье: " + health + " || ")
-                .append("Гигиена: " + clean + " || ")
-                .append("Сон: " + sleep + " || ")
-                .append("Туалет: " + toilet + " || ")
-                .append("Деньги: " + master.money)
+                //.append(name + ":\n")
+                .append("🍎: " + hunger + " | ")
+                .append("💊: " + health + " | ")
+                .append("💦: " + clean + "\n")
+                .append("💤: " + sleep + " | ")
+                .append("🚽: " + toilet + " | ")
+                .append("💰: " + master.money + "\n")
                 .toString();
     }
 
