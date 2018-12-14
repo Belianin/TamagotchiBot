@@ -7,7 +7,7 @@ import java.util.TimerTask;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class Bot {
-	private ConcurrentHashMap<String, UserData> users = new ConcurrentHashMap<>();
+	public ConcurrentHashMap<String, UserData> users;
 	private HashMap<DialogName, Dialog> dialogs = new HashMap<>();
 	private BotListener listener;
 	private FileWorker fileWorker;
@@ -15,9 +15,10 @@ public class Bot {
 	public Bot(BotListener listener) {
 		fileWorker = new FileWorker("data/users/");
 		fileWorker.loadEncounters();
+		users = fileWorker.loadUsers();
 		this.listener = listener;
 		dialogs.put(DialogName.Start, new StartDialog());
-		dialogs.put(DialogName.Main, new MainDialog());
+		dialogs.put(DialogName.Main, new MainDialog(this));
 		dialogs.put(DialogName.Training, new TrainingDialog());
 		dialogs.put(DialogName.Creation, new CreationDialog());
 
@@ -31,6 +32,10 @@ public class Bot {
 				}
 			}
 		}, 20000, 20000);
+	}
+	
+	public void saveUsers() {
+		fileWorker.saveUsers(users);
 	}
 
 	private UserData getUser(String id) {

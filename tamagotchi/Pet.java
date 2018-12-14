@@ -14,6 +14,12 @@ public class Pet {
     private int clean = 100;
     private int sleep = 100;
     private int toilet = 100;
+    
+    private Date birthday;
+    
+    public Date getBirthday() {
+    	return birthday;
+    }
 
     //Пока вечно истинно
     public boolean canToilet = true;
@@ -34,6 +40,7 @@ public class Pet {
     public Pet(String name, UserData master) {
     	this.name = name;
     	this.master = master;
+    	birthday = new Date();
     }
 
 
@@ -106,10 +113,10 @@ public class Pet {
                 //.append(name + ":\n")
                 .append("🍎: " + alignState(hunger) + " | ")
                 .append("💊: " + alignState(health) + " | ")
-                .append("💦: " + alignState(clean) + "\n")
+                .append("💦: " + alignState(clean) + " | ")
                 .append("💤: " + alignState(sleep) + " | ")
-                .append("🚽: " + alignState(toilet) + " | ")
-                .append("💰: " + master.money + "\n")
+                .append("🚽: " + alignState(toilet) + "\n")
+                //.append("💰: " + master.money + "\n")
                 .toString();
     }
     

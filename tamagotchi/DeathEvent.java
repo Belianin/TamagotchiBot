@@ -27,6 +27,7 @@ public class DeathEvent extends Event {
     	
 		if (pet.getHunger() == 0 || pet.getHealth() == 0) {
 			pet.alive = false;
+			pet.master.pet = null;
 			pet.master.events.clear();
 			reply = new Reply(pet.name + " RIP :(", DialogName.Start);
 		}

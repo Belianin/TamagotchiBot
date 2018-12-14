@@ -16,9 +16,10 @@ import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 public class TelegramEntryPoint extends TelegramLongPollingBot implements BotListener  {
-	private Bot bot;
+	public Bot bot;
 	
 	public TelegramEntryPoint()
 	{
@@ -29,12 +30,16 @@ public class TelegramEntryPoint extends TelegramLongPollingBot implements BotLis
 		System.out.println("Starting...");
 		ApiContextInitializer.init();
 		TelegramBotsApi botapi = new TelegramBotsApi();
+		TelegramEntryPoint entry = new TelegramEntryPoint();
 		try {
-			botapi.registerBot(new TelegramEntryPoint());
+			botapi.registerBot(entry);
 		} catch (TelegramApiException e) {
 			e.printStackTrace();
 		}
 		System.out.println("Settled");
+		Scanner input = new Scanner(System.in);
+		if (input.next().contains("save"))
+			entry.bot.saveUsers();
 	}
 
 	@Override

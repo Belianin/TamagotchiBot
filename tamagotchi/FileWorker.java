@@ -7,6 +7,8 @@ import java.util.Map;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Scanner;
+import java.util.concurrent.ConcurrentHashMap;
+
 import com.google.gson.*;
 
 public class FileWorker {
@@ -57,6 +59,24 @@ public class FileWorker {
 		File file = new File(userDirectory + name);
 		file.delete();
 	}
+	
+	public ConcurrentHashMap<String, UserData> loadUsers() {
+		ConcurrentHashMap<String, UserData> users = new ConcurrentHashMap<String, UserData>();
+		
+		File directory = new File(userDirectory);
+		File[] files = directory.listFiles();
+		if (files == null)
+			return users;
+
+		for (File file : files) {
+			UserData user = gson.fromJson(readFile(file), UserData.class);
+			users.put(user.id, user);
+		}
+		
+		return users;
+			
+		
+	}
 
 	public UserData loadUser(String name) {
 		String rawUser = readFile(userDirectory + name);
@@ -64,6 +84,11 @@ public class FileWorker {
 			return null;
 		UserData user = gson.fromJson(rawUser, UserData.class);
 		return user;
+	}
+	
+	public void saveUsers(ConcurrentHashMap<String, UserData> users) {
+		for (UserData user : users.values())
+			saveUser(user);
 	}
 
 	public void saveUser(UserData user) {

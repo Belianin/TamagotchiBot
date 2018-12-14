@@ -7,7 +7,7 @@ public class MainDialog implements Dialog {
 	private DialogName name = DialogName.Main;
 	private ArrayList<Command> commands = new ArrayList<Command>();
 
-	MainDialog() {
+	public MainDialog(Bot bot) {
 		commands.add(new FeedCommand());
 		commands.add(new SleepCommand());
 		commands.add(new HealCommand());
@@ -17,6 +17,7 @@ public class MainDialog implements Dialog {
 		commands.add(new ShowCommandsCommand());
 		commands.add(new EnterDungeonCommand());
 		commands.add(new LeaveDungeonCommand());
+		commands.add(new StatisticsCommand(bot));
 	}
 	
 	public Reply reply(UserData user, String input)

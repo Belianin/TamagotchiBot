@@ -35,3 +35,5 @@
 /CreationDialog.class
 /FileWorker.class
 /HealCommand.class
+/StatisticsCommand.class
+/StatisticsCommand$1.class
