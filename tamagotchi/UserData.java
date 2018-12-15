@@ -7,7 +7,7 @@ public class UserData {
 	public Pet pet;
 	public DialogName currentDialog = DialogName.Start;
 	public ArrayList<Event> events = new ArrayList<Event>();
-	public int money;
+	public int money = 100;
 	
 	public UserData(String id)
 	{

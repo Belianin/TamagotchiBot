@@ -5,6 +5,7 @@ public class Pet {
     public int trainLvl = 0;
     public boolean alive = true;
     public boolean isSleep = false;
+    public boolean isResponsible = true;
 
     //мб уже и не надо
     private Date lastUpdate = new Date();
