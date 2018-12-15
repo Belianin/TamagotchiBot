@@ -15,7 +15,7 @@ public class Bot {
 	public Bot(BotListener listener) {
 		fileWorker = new FileWorker("data/users/");
 		fileWorker.loadEncounters();
-		users = fileWorker.loadUsers();
+		users = new ConcurrentHashMap<>();//fileWorker.loadUsers();
 		this.listener = listener;
 		dialogs.put(DialogName.Start, new StartDialog());
 		dialogs.put(DialogName.Main, new MainDialog(this));

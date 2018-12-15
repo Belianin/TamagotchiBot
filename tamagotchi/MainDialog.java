@@ -15,7 +15,7 @@ public class MainDialog implements Dialog {
 		commands.add(new CleanCommand());
 		commands.add(new CheckCommand());
 		commands.add(new ShowCommandsCommand());
-		commands.add(new EnterDungeonCommand());
+		commands.add(new EnterDungeonCommand(bot));
 		commands.add(new LeaveDungeonCommand());
 		commands.add(new StatisticsCommand(bot));
 	}

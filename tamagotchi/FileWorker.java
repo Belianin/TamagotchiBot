@@ -83,6 +83,7 @@ public class FileWorker {
 		if (rawUser == null)
 			return null;
 		UserData user = gson.fromJson(rawUser, UserData.class);
+		user.pet.master = user;
 		return user;
 	}
 	

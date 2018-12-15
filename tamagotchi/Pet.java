@@ -31,10 +31,10 @@ public class Pet {
     public boolean InDungeon = false;
     
     public String name;
-    public UserData master;
+    public transient UserData master;
 
-    public   boolean isStory = false;
-    public  int storyLevel = 0;
+    public boolean isStory = false;
+    public int storyLevel = 0;
     public String storyName = "";
     
     public Pet(String name, UserData master) {

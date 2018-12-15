@@ -6,9 +6,11 @@ import java.util.Random;
 public class EncounterEvent extends Event {
 	public static int timeToNext = 10000;
 	private Pet pet;
+	private Bot bot;
 	
-	public EncounterEvent(Pet pet)
+	public EncounterEvent(Pet pet, Bot bot)
 	{
+		this.bot = bot;
 		pet.InDungeon = true;
 		this.pet = pet;
 		Date currentDate = new Date();
@@ -23,7 +25,7 @@ public class EncounterEvent extends Event {
 			when = new Date(when.getTime() + timeToNext);
 			return true;
 		}
-		Encounter encounter = Encounters.getEncounter(pet);
+		Encounter encounter = Encounters.getEncounter(pet, bot);
 		reply = encounter.act(pet);
 
 		

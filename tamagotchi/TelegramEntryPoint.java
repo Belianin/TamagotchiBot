@@ -38,8 +38,12 @@ public class TelegramEntryPoint extends TelegramLongPollingBot implements BotLis
 		}
 		System.out.println("Settled");
 		Scanner input = new Scanner(System.in);
-		if (input.next().contains("save"))
-			entry.bot.saveUsers();
+//		while (true) {
+//			String msg = input.next();
+//			
+//			if (msg.contains("save"))
+//				entry.bot.saveUsers();
+//		}
 	}
 
 	@Override
