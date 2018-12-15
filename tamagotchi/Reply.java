@@ -8,6 +8,7 @@ public class Reply {
 	private String text;
 	private ArrayList<List<Button>> buttons = new ArrayList<List<Button>>();
 	private DialogName nextDialog = DialogName.None;
+	public String anotherId;
 	
 	public DialogName getNextDialog()
 	{

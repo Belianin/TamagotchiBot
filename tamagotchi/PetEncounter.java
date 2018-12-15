@@ -8,7 +8,10 @@ public class PetEncounter extends Encounter {
 	}
 	
 	public Reply act(Pet pet) {
-		return new Reply("Вот это встреча, да это же " + anotherPet.name + ".");
+		Reply reply =  new Reply("Вау, " + pet.name + " встретил в своем путешествии " + anotherPet.name + ", вот так да!");
+		reply.anotherId = anotherPet.master.id;
+		
+		return reply;
 	}
 
 }

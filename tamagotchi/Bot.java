@@ -57,6 +57,8 @@ public class Bot {
 					if (reply.getNextDialog() != DialogName.None)
 						user.currentDialog = reply.getNextDialog();
 					listener.processMessage(user.id, reply);
+					if (reply.anotherId != null)
+						listener.processMessage(reply.anotherId, reply);
 				}
 			}
 		}
